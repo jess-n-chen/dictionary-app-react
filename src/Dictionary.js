@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import DisplayDef from "./DisplayDef";
 import "./Dictionary.css";
 
 export default function Dictionary(props) {
   const [term, setTerm] = useState("");
+  const [definition, setDefinition] = useState(null);
 
-  function storeResponse(response) {
-    console.log(response.data[0]);
+  function storeDefResponse(response) {
+    setDefinition(response.data[0]);
   }
 
   function formSubmit(event) {
@@ -22,11 +24,11 @@ export default function Dictionary(props) {
     event.preventDefault();
 
     let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${term}`;
-    axios.get(apiURL).then(storeResponse);
+    axios.get(apiURL).then(storeDefResponse);
   }
 
   let searchForm = (
-    <div className="row search-bar-container">
+    <div className="row search-bar-container mb-5">
       <form className="search-term-form" onSubmit={formSubmit}>
         <input
           className="form-control"
@@ -42,6 +44,7 @@ export default function Dictionary(props) {
     <div className="main-container">
       <h1 className="mb-5">👩‍💻 Dictionary</h1>
       {searchForm}
+      <DisplayDef data={definition} />
     </div>
   );
 }
