@@ -30,7 +30,10 @@ footer p {
 }
 
 .App {
-  background-color: #282c34;
-  height: 100%;
+  background-size: cover;
+  background-image: url("images/pexels-tirachard-kumtanom-347139.jpg");
+  background-repeat: repeat-x;
+  min-height: 100vh;
+  height: auto;
   padding: 50px 50px;
 }
