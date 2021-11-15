@@ -1,13 +1,26 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
+
+import Dictionary from "./Dictionary";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Dictionary</p>
-      </header>
+      <div className="container">
+        <Dictionary />
+      </div>
+      <footer className="mt-3">
+        <p>
+          Author: Jessica Chen | Open Source:{" "}
+          <a
+            href="https://github.com/jess-n-chen/dictionary-app-react"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Github Link
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
