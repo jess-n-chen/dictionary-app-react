@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 import "./Dictionary.css";
 
 export default function Dictionary(props) {
   const [term, setTerm] = useState("");
 
+  function storeResponse(response) {
+    console.log(response.data[0]);
+  }
+
   function formSubmit(event) {
     event.preventDefault();
-    dictionarySearch();
+    dictionarySearch(event);
   }
 
   function updateTerm(event) {
@@ -15,7 +19,10 @@ export default function Dictionary(props) {
   }
 
   function dictionarySearch(event) {
-    alert(`Searching for ${term}`);
+    event.preventDefault();
+
+    let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${term}`;
+    axios.get(apiURL).then(storeResponse);
   }
 
   let searchForm = (
