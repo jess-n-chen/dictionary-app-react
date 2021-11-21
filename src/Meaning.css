@@ -1,0 +1,11 @@
+.example {
+  font-size: 14px;
+}
+
+.partOfSpeech {
+  color: rgb(81, 47, 201);
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-transform: capitalize;
+}

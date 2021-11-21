@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Dictionary />
+        <Dictionary defaultWord="flight" />
       </div>
       <footer className="mt-3">
         <p>

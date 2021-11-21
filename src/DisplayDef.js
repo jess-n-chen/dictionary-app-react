@@ -3,6 +3,7 @@ import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
 
 export default function DisplayDef(props) {
+  console.log(props.data);
   if (props.data) {
     return (
       <div className="displayDef">
@@ -15,6 +16,7 @@ export default function DisplayDef(props) {
             return (
               <div key={index}>
                 <Meaning data={meaning} />
+                <hr className="my-5" />
               </div>
             );
           })}
