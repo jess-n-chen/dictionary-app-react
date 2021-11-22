@@ -8,9 +8,15 @@
   padding: 50px;
 }
 
+.search-footer {
+  font-style: italic;
+  margin: 5px 20px;
+}
+
 .search-term-form {
   margin: 0 auto;
   max-width: 600px;
+  padding-top: 10px;
 }
 
 .search-term-form .form-control {

@@ -7,7 +7,7 @@ export default function DisplayDef(props) {
     return (
       <div className="displayDef">
         <div>
-          <h2>{props.data.word}</h2>
+          <h2 className="searchWord">{props.data.word}</h2>
           {props.data.phonetics.map(function (phonetic, index) {
             return <Phonetic data={phonetic} key={index} />;
           })}

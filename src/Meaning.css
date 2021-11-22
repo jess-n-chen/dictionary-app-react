@@ -1,11 +1,14 @@
+.definition {
+  font-weight: 800;
+}
+
 .example {
   font-size: 14px;
+  font-style: italic;
 }
 
 .partOfSpeech {
-  color: rgb(81, 47, 201);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
-  text-decoration: underline;
   text-transform: capitalize;
 }

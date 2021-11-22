@@ -45,6 +45,7 @@ export default function Dictionary(props) {
 
   let searchForm = (
     <div className="row search-bar-container mb-5">
+      <h3>What word would you like to look up?</h3>
       <form className="search-term-form" onSubmit={formSubmit}>
         <input
           className="form-control"
@@ -54,17 +55,20 @@ export default function Dictionary(props) {
           placeholder="Search for a word"
           onChange={updateTerm}
         />
+        <p className="search-footer">i.e. Dog, Balloon, Sunset, etc...</p>
       </form>
     </div>
   );
 
   if (loaded) {
     return (
-      <div className="main-container">
+      <div className="dictionary-container">
         <h1 className="mb-5">👩‍💻 Dictionary</h1>
         {searchForm}
-        <DisplayDef data={definition} />
-        <Photos data={photos} />
+        <div className="main-container">
+          <DisplayDef data={definition} />
+          <Photos data={photos} />
+        </div>
       </div>
     );
   } else {
