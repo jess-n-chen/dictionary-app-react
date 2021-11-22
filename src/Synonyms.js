@@ -2,7 +2,6 @@ import React from "react";
 import "./Synonyms.css";
 
 export default function Synonyms(props) {
-  console.log(props.data);
   if (props.data && props.data.length) {
     return (
       <div className="Synonyms mb-3">

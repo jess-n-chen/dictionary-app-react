@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
 import DisplayDef from "./DisplayDef";
+import Photos from "./Photos";
 import "./Dictionary.css";
 
 export default function Dictionary(props) {
   const [term, setTerm] = useState(props.defaultWord);
   const [loaded, setLoaded] = useState(false);
   const [definition, setDefinition] = useState(null);
+  const [photos, setPhotos] = useState([]);
 
-  function storeDefResponse(response) {
+  function searchImages(response) {
+    setPhotos(response.data.photos);
+  }
+
+  function handleResponse(response) {
     setDefinition(response.data[0]);
+
+    let apiURL = `https://api.pexels.com/v1/search?query=${response.data[0].word}&per_page=9`;
+    let apiKey = "563492ad6f917000010000014a4078a4f8b545fda3f3c33d260ab9d0";
+    axios
+      .get(apiURL, { headers: { Authorization: `Bearer ${apiKey}` } })
+      .then(searchImages);
   }
 
   function formSubmit(event) {
@@ -28,7 +40,7 @@ export default function Dictionary(props) {
 
   function dictionarySearch(event) {
     let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${term}`;
-    axios.get(apiURL).then(storeDefResponse);
+    axios.get(apiURL).then(handleResponse);
   }
 
   let searchForm = (
@@ -52,6 +64,7 @@ export default function Dictionary(props) {
         <h1 className="mb-5">👩‍💻 Dictionary</h1>
         {searchForm}
         <DisplayDef data={definition} />
+        <Photos data={photos} />
       </div>
     );
   } else {
